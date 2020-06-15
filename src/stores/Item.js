@@ -1,9 +1,11 @@
-import { observable } from 'mobx'
+import { observable, action } from 'mobx'
 
 export class Item {
     @observable name
+    @observable location
     @observable completed = false
-    constructor(name) {
+    constructor(name,location = "Super Sell") {
         this.name = name
+        this.location = location
     }
 }

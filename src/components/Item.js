@@ -7,19 +7,22 @@ class Item extends Component {
         //your code here
       }
       editItem = () => {
-        //your code here
+        const newLocation = prompt("Insert New Location ...")
+        this.props.store.editItem(this.props.item.name,newLocation)
       }
       deleteItem = () => {
-        //your code here
+        this.props.store.deleteItem(this.props.item.name)
       }
-    render() {
+      render() {
+        let item = this.props.item
         return (
-            <div className = "">
-      {/*   your code here
-            each item should be in an input checkbox
-            it should display the item name and location
-            it should have both an edit button and a delete button
-      */} 
+            <div className = {item.completed ? "crossed": null}>
+            <input type="checkbox"
+                value={item.name}/> 
+                {item.name} 
+                {item.location}
+                <button className='editButton' onClick={this.editItem}>edit</button>
+                <button className='deleteButton' onClick={this.deleteItem}>delete</button>
             </div>)
     }
 }
